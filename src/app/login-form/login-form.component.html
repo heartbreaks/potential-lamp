@@ -1,0 +1,40 @@
+<div class="login-form">
+  <div class="form-island">
+    <div class="form-island--wrapper">
+      <tui-island>
+        <h3 class="tui-island__title">Авторизация</h3>
+        <form
+          autocomplete="off"
+          class="b-form"
+          [formGroup]="formGroup"
+        >
+          <tui-input class="mb-1" formControlName="email">
+            Введите email
+            <input
+              tuiTextfield
+              type="email"
+            />
+          </tui-input>
+
+          <tui-input formControlName="email">
+            Введите пароль
+            <input
+              tuiTextfield
+              type="password"
+            />
+          </tui-input>
+        </form>
+        <button
+          appearance="flat"
+          size="m"
+          tuiButton
+          type="button"
+          class="tui-island__footer-button"
+          (click)="login()"
+        >
+          Войти
+        </button>
+      </tui-island>
+    </div>
+  </div>
+</div>

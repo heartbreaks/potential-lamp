@@ -1,0 +1,15 @@
+<div class="task-board">
+  <ng-container *tuiLet="dashboard$ | async as grids">
+    <ng-container *ngIf="grids">
+      <div class="task-grid" *ngFor="let grid of grids; let i = index" cdkDropList [cdkDropListData]="grid.tasks"
+           [cdkDropListConnectedTo]="connectedDropLists" (cdkDropListDropped)="drop($event)">
+        <h2>{{ grid.title }}</h2>
+        <div class="task-item" *ngFor="let task of grid.tasks" cdkDrag>{{ task.name }}</div>
+      </div>
+    </ng-container>
+    <div *ngIf="!grids">
+      <tui-loader />
+      <h4>Погодите, мы загружаем вашу каторгу</h4>
+    </div>
+  </ng-container>
+</div>
